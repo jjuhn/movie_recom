@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Movies</title>
+</head>
+<body>
+<h3><a href={{ url_for('index') }}>Home</a></h3>
+
+<h2>List of all the movies and their ratings ordered by ratings</h2>
+{{ items| safe}}
+</body>
+</html>

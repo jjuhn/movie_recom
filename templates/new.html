@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+<h3><a href={{ url_for('index') }}>Home</a></h3>
+
+<h2>Get Recommendation when User ID is not available(Cold Start)</h2>
+<form method="POST" action="{{ url_for('newUser') }}">
+    {{ form.csrf_token }}
+
+    <div>
+        {{ form.age.label }} {{ form.age(size=3) }}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+    <div>
+        {{ form.occupation.label }} {{ form.occupation }}
+    </div>
+
+{#    <div>#}
+{#        {{ form.gender.label }} {{ form.gender }}#}
+{#    </div>#}
+
+    <input type="submit" value="Go">
+
+</form>
+
+</body>
+</html>

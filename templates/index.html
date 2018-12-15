@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Recommender - jjuhn2</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #111;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+
+{#<ul>#}
+{#  <li><a href="/">Home</a></li>#}
+{#  <li><a href="/Movies">Movies</a></li>#}
+{#  <li><a href="/New User">New User</a></li>#}
+{#  <li><a href="/Existing User">Existing User</a></li>#}
+{#  <li><a href="/about">About</a></li>#}
+{#</ul>#}
+<h3>
+    Movie Recommender System using Singular Value Decomposition
+
+</h3>
+
+
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+    <h2><a href={{ url_for("movies") }}>Movies</a></h2>
+    <p>List of all the movies and ratings</p>
+
+  </div>
+
+  <div class="column" style="background-color:#bbb;">
+    <h2><a href={{ url_for("existingUser") }}>For Existing User</a></h2>
+    <p>Collaborative filtering + Content based filtering using </p>
+      <form>
+
+      </form>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2><a href={{ url_for("newUser") }}>For A New User</a></h2>
+    <p>Collaborative filtering + Content based filtering using Age, Gender, or Occupation</p>
+      <form>
+
+      </form>
+  </div>
+</div>
+
+</body>
+</html>
+

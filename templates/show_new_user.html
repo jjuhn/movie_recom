@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User Recommendations</title>
+</head>
+<body>
+<h3><a href={{ url_for('index') }}>Home</a></h3>
+<h3>Based on the Age: {{ age }}</h3>
+<h5>Straight querying</h5>
+    {{ age_group_show|safe }}
+<h5>Using SVD</h5>
+    {{ age_recommendation|safe}}
+<h3>Based on the Occupation: {{ occupation }}</h3>
+<h5>Straight querying</h5>
+    {{ occ_show|safe }}
+<h5>Using SVD</h5>
+    {{ occ_recommendation|safe }}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3><a href={{ url_for('index') }}>Home</a></h3>
+
+<h3>User ID: {{ uID }}</h3>
+<h3>List of Movies rated by this user: {{ uID }}</h3>
+{{ movies|safe }}
+<h3>Model-based Collaborative Filtering using Singular Value Decomposition (SVD)</h3>
+{{ recommendation|safe }}
+
+</body>
+</html>

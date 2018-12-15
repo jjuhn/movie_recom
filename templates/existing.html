@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Existing User</title>
+</head>
+<body>
+<h3><a href={{ url_for('index') }}>Home</a></h3>
+
+
+
+<h2>Get Recommendation when User ID is given</h2>
+<form method="POST" action={{ url_for('existingUser') }}>
+    {{ form.csrf_token }}
+    {{ form.userID.label }} {{ form.userID(size=20) }}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+      {% endif %}
+    {% endwith %}
+
+
+    <input type="submit" value="Go">
+</form>
+I recommend looking at User ID of 8. This user has quite short list of rated movies and recommendation result is pretty good.
+</body>
+</html>
