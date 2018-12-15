@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import numpy as np
-import scipy
+from scipy.sparse.linalg import svds
 
 filepath = os.path.abspath(os.path.dirname(__file__))
 userpath = os.path.join(filepath, 'data/ml-100k/u.user')

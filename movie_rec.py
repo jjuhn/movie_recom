@@ -1,10 +1,6 @@
 from flask import Flask
 from flask import render_template, url_for, redirect, flash
-import pandas as pd
-import os
 from forms import ExistingUserForm, NewUserForm
-import numpy as np
-from scipy.sparse.linalg import svds
 from tools import *
 
 app = Flask(__name__)
