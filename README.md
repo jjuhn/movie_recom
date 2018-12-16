@@ -96,4 +96,8 @@ ratings = some_rating_table.pivot(index='Predictor', columns='things_to_be_predi
 results_for_all_predictor = get_all_predicted_ratings(ratings, k=len(ratings)-1)
 
 ```
+- some_rating_table could be user based or item based. for example, amazon's "Inspired by your wish list" could be used.  
+In that case, "Predictor" can be your wish list, "things_to_be_predicted" can be all amazon products - your wish list. 
+"some_sort_of_ratings" can be user ratings of amazon's product. then it will give you the predicted ratings based on your wish list. 
+ 
 
