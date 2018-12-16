@@ -9,4 +9,14 @@ You could clone this project(download)
 - pip install numpy 
 - pip install scipy 
 
+# Overview of Functions
 
+# Implementation 
+
+# Usage
+
+
+
+
+
+he 20% for the documentation submission includes 5% for overview of functions, 10% for implementation documentation, 5% for usage documentation. There is no strict length requirement for the documentation.
