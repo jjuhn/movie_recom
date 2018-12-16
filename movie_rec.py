@@ -2,44 +2,38 @@ from flask import Flask
 from flask import render_template, url_for, redirect, flash
 from forms import ExistingUserForm, NewUserForm
 from tools import *
+from importing_tools import read_files
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my big secret'
 
-filepath = os.path.abspath(os.path.dirname(__file__))
-userpath = os.path.join(filepath, 'data/ml-100k/u.user')
-ratingspath = os.path.join(filepath, 'data/ml-100k/u.data')
-itemspath = os.path.join(filepath, 'data/ml-100k/u.item')
-
-#Reading users file:
-u_cols = ['user_id', 'age', 'sex', 'occupation', 'zipcode']
-users = pd.read_csv(userpath, sep='|', names=u_cols, encoding='latin-1')
-
-#Reading ratings file:
-r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
-ratings = pd.read_csv(ratingspath, sep='\t', names=r_cols,
- encoding='latin-1')
-
-#Reading items file:
-i_cols = ['movie_id', 'movie title' ,'release date','video release date', 'IMDb URL', 'unknown', 'Action', 'Adventure',
- 'Animation', 'Children\'s', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy',
- 'Film-Noir', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
-items = pd.read_csv(itemspath, sep='|', names=i_cols,
- encoding='latin-1')
+users, ratings, items = read_files()
 
 
 @app.route('/')
 @app.route('/index')
 def index():
+    '''
+
+    :return: index.html template
+    '''
     return render_template('index.html')
 
 @app.route('/movies')
 def movies():
+    '''
 
+    :return: movies.html template with all the movies that are mean rated and sorted
+    '''
     return render_template('movies.html', items=movie_ratings_sorted.to_html())
 
 @app.route('/existing', methods=['GET', 'POST'])
 def existingUser():
+    '''
+
+    :return: when form is filled returns show_user.html else existing.html.  show_user contains two tables.
+    One with movies that the user rated and the other is for the recommendation.
+    '''
     form = ExistingUserForm()
 
     if form.validate_on_submit():
