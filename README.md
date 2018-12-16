@@ -1,4 +1,4 @@
-# movie_recom
+# Movie recommendation using movielens data set and SVD. 
 Repository for Movie Recommendation system part of UIUC CS420 Final Project 
 
 # Installation
